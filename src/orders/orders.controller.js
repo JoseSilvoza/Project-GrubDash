@@ -137,13 +137,11 @@ function create(req, res) {
 }
 
 function update(req, res) {
-  const ID = req.params.orderId;
   const {
-    data: { id, deliverTo, mobileNumber, status, dishes, quantity } = {},
+    data: { deliverTo, mobileNumber, status, dishes, quantity } = {},
   } = req.body;
   const index = res.locals.index;
 
-  orders[index].id = ID;
   orders[index].deliverTo = deliverTo;
   orders[index].mobileNumber = mobileNumber;
   orders[index].status = status;
@@ -153,7 +151,6 @@ function update(req, res) {
 }
 
 function read(req, res) {
-  const ID = req.params.orderId;
   const order = res.locals.order;
   res.json({ data: order });
 }
